@@ -11,7 +11,6 @@
 
     <br>
 
-
     <form>
         <label>Degree in °C</label>
             <input type="number" id="deg" class="form-control" placeholder="Input degree value">
@@ -19,52 +18,49 @@
         <br>
         
         <label>Humidity in %</label>
-            <input type="number" id="humid" class="form-control" placeholder="Input percentage value">
+            <input type="number" id="perc" class="form-control" placeholder="Input percentage value">
 
         <br>
 
-        <button type="button" class="btn btn-warning" onclick="showindex()">Check</button>
+        <button type="button" class="btn btn-warning" onclick="showhindex()">Check</button>
     </form>
 
     <script>
-        function showindex() {
-            let temperature, humid, range, status = ;
-            humidity = parseFloat(document.getElementById("humid").value);
-            temp = parseFloat(document.getElementById("deg").value);
-            
+       function showhindex(){
+        let temp, humidity, HI, status      
+        
+        temp = parseFloat(document.getElementById("deg").value);
+        humidity = parseFloat(document.getElementById("perc").value);
 
-            heatindex = temp + (0.33 * humidity) - 4; 
+        HI = temp + (0.33 * humidity) - 4;
+ 
+         switch(true){
+            case(HI <= 27):
+                status = "Comfortable/cool";
+                break; 
 
-            status = "";
+            case(HI >= 28 && H <= 32):
+                status = "Warm";
+                break; 
 
-                switch(true){
-                    case(range <= 27):
-                        status = " Comfortable / Cool";
-                        break;
+            case(HI >= 33 && H <= 37):
+                status = "Hot";
+                break; 
 
-                    case(range <= 32):
-                        status = " Warm";
-                        break;
-                    
-                    case(range <= 37):
-                        status = "Hot";
-                        break;
+            case(HI >= 38 && H <= 41):
+                status = "Very Hot/Caution";
+                break;
 
-                    case(range <= 41):
-                        status = "Very Hot / Caution";
-                        break;
-                    
-                    case(range >= 42):
-                        status = "Extreme Heat / Danger";
-                        break;
-                    
-                    default:
-                        status = "invalid input";
-                        break;
-                }
-            alert("Heat Index: " + heatindex + "°C" + "Status: " + status);
+            case(HI >= 42):
+                status = "Extreme Heat/Danger";
+                break;
+
+            default: 
+                status = "Undetermined"; 
+            }
+
+            alert("Heat Index: " + HI.toFixed(1) + "C°\n" + "Status: " + message);
         }
     </script>
-    
 </body>
 </html>
