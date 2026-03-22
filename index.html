@@ -22,11 +22,11 @@
 
         <br>
 
-        <button type="button" class="btn btn-warning" onclick="showhindex()">Check</button>
+        <button type="button" class="btn btn-warning" onclick="showindex()">Check</button>
     </form>
 
     <script>
-       function showhindex(){
+       function showindex(){
         let temp, humidity, HI, status      
         
         temp = parseFloat(document.getElementById("deg").value);
@@ -39,15 +39,15 @@
                 status = "Comfortable/cool";
                 break; 
 
-            case(HI >= 28 && H <= 32):
+            case(HI >= 28 && HI <= 32):
                 status = "Warm";
                 break; 
 
-            case(HI >= 33 && H <= 37):
+            case(HI >= 33 && HI <= 37):
                 status = "Hot";
                 break; 
 
-            case(HI >= 38 && H <= 41):
+            case(HI >= 38 && HI <= 41):
                 status = "Very Hot/Caution";
                 break;
 
@@ -59,7 +59,7 @@
                 status = "Undetermined"; 
             }
 
-            alert("Heat Index: " + HI.toFixed(1) + "C°\n" + "Status: " + message);
+            alert("Heat Index: " + HI.toFixed(1) + "C°\n" + "Status: " + status);
         }
     </script>
 </body>
