@@ -38,6 +38,13 @@
             color: orange;
         }
 
+         img{
+            display: block;
+            height: 150px; 
+            width: auto;
+            margin: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -51,19 +58,29 @@
 
         <br>
 
-        <form>
-            <label>Degree in °C</label>
-                <input type="number" id="deg" class="form-control" placeholder="Input degree value">
+        <div class="row">
+            <div class="col-lg-8">
+                <form>
+                    <label>Degree in °C</label>
+                        <input type="number" id="deg" class="form-control" placeholder="Input degree value">
 
-            <br>
-            
-            <label>Humidity in %</label>
-                <input type="number" id="perc" class="form-control" placeholder="Input percentage value">
+                    <br>
+                    
+                    <label>Humidity in %</label>
+                        <input type="number" id="perc" class="form-control" placeholder="Input percentage value">
 
-            <br>
+                    <br>
 
-            <button type="button" class="btn btn-warning" onclick="showindex()">Check</button>
-        </form>
+                    <button type="button" class="btn btn-warning" onclick="showindex()">Check</button>
+                </form>
+            </div>
+
+            <div class="col-lg-4">
+                <a href="https://www.pagasa.dost.gov.ph/weather/heat-index" target="_blank">
+                    <img src="https://pubfiles.pagasa.dost.gov.ph/pagasaweb/images/pagasa-logo.png" alt="pagasalogo">
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
